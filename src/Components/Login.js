@@ -16,11 +16,11 @@ const Login = (props) => {
       <Section>
         <Hero>
           <h1>Welcome to our professional community</h1>
-          <img src="/images/login-hero.svg" alt="her0"></img>
+          <img src="/images/login-hero.svg" alt="hero"></img>
         </Hero>
         <Form>
           <Google>
-            <img src="/images/google.svg" alt="google"></img>
+            <img src="/images/google.svg" alt="sign in"></img>
             Sign in with Google
           </Google>
         </Form>
@@ -88,7 +88,7 @@ const SignIn = styled.a`
 const Section = styled.section`
   align-content: start;
   display: flex;
-  min-height: 700px;
+  min-height: 600px;
   padding-top: 60px;
   flex-wrap: wrap;
   width: 100%;
@@ -96,6 +96,7 @@ const Section = styled.section`
   @media (max-width: 768px) {
     margin: auto;
     min-height: 0px;
+    padding-top: 20px;
   }
 `;
 
@@ -117,7 +118,7 @@ const Hero = styled.div`
   }
   img {
     width: 700px;
-    height: 640px;
+    height: 630px;
     position: absolute;
     bottom: -2px;
     right: -150px;
@@ -133,11 +134,12 @@ const Hero = styled.div`
 `;
 
 const Form = styled.div`
+  margin: 0 auto;
   margin-top: 100px;
   width: 408px;
 
   @media (max-width: 768px) {
-    margin-top: 20px;
+    margin-top: 10px;
   }
 `;
 
