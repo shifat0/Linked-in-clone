@@ -134,12 +134,12 @@ const Hero = styled.div`
 `;
 
 const Form = styled.div`
-  margin: 0 auto;
   margin-top: 100px;
   width: 408px;
 
   @media (max-width: 768px) {
     margin-top: 10px;
+    margin: 0 auto;
   }
 `;
 

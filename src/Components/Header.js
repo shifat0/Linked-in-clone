@@ -21,31 +21,31 @@ const Header = (props) => {
         <Nav>
           <NavListWrap>
             <NavList className="active">
-              <a>
+              <a href="#">
                 <img src="/images/nav-home.svg" alt="home"></img>
                 <span>Home</span>
               </a>
             </NavList>
             <NavList>
-              <a>
+              <a href="#">
                 <img src="/images/nav-network.svg" alt="network"></img>
                 <span>My Network</span>
               </a>
             </NavList>
             <NavList>
-              <a>
+              <a href="#">
                 <img src="/images/nav-jobs.svg" alt="Jobs"></img>
                 <span>Jobs</span>
               </a>
             </NavList>
             <NavList>
-              <a>
+              <a href="#">
                 <img src="/images/nav-messaging.svg" alt="Messaging"></img>
                 <span>Messaging</span>
               </a>
             </NavList>
             <NavList>
-              <a>
+              <a href="#">
                 <img
                   src="/images/nav-notifications.svg"
                   alt="notification"
@@ -54,7 +54,7 @@ const Header = (props) => {
               </a>
             </NavList>
             <User>
-              <a>
+              <a href="#">
                 <img src="/images/user.svg" alt="user"></img>
                 <span>
                   Me
@@ -62,11 +62,11 @@ const Header = (props) => {
                 </span>
               </a>
               <SignOut>
-                <a>Sign Out</a>
+                <a href="#">Sign Out</a>
               </SignOut>
             </User>
             <Work>
-              <a>
+              <a href="#">
                 <img src="/images/nav-work.svg" alt="work"></img>
                 <span>
                   Work
