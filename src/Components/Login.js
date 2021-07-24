@@ -89,7 +89,6 @@ const Section = styled.section`
   align-content: start;
   display: flex;
   min-height: 700px;
-  padding-bottom: 138px;
   padding-top: 60px;
   flex-wrap: wrap;
   width: 100%;
