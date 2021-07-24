@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import Header from "./Header";
+import HomeLeft from "./HomeLeft";
+import HomeMain from "./HomeMain";
+import HomeRight from "./HomeRight";
 
 const Home = (props) => {
   return (
@@ -15,9 +18,9 @@ const Home = (props) => {
         </p>
       </Section>
       <Layout>
-        <div>left</div>
-        <div>Main</div>
-        <div>Right</div>
+        <HomeLeft />
+        <HomeMain />
+        <HomeRight />
       </Layout>
     </Container>
   );
