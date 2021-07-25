@@ -26,9 +26,7 @@ const Home = (props) => {
   );
 };
 
-const Container = styled.div``;
-
-const Content = styled.div`
+const Container = styled.div`
   max-width: 1120px;
   margin: 0 auto;
 `;
