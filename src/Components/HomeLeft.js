@@ -7,16 +7,16 @@ const HomeLeft = () => {
       <ArtCard>
         <UserInfo>
           <CardBackGround />
-          <a href="#">
+          <a>
             <Photo />
             <Link>Welcome, There!</Link>
           </a>
-          <a href="#">
+          <a>
             <AddPhotoText>Add Your Photo</AddPhotoText>
           </a>
         </UserInfo>
         <Widget>
-          <a href="#">
+          <a>
             <div>
               <span>Connections</span>
               <span>Grew Your Network</span>
@@ -32,19 +32,19 @@ const HomeLeft = () => {
         </Item>
       </ArtCard>
       <CommunityCard>
-        <a href="#">
+        <a>
           <span>Groups</span>
         </a>
-        <a href="#">
+        <a>
           <span>
             Events
             <img src="/images/plus-icon.svg" alt="plus"></img>
           </span>
         </a>
-        <a href="#">
+        <a>
           <span>Follow Hashtags</span>
         </a>
-        <a href="#">
+        <a>
           <span>Discover More</span>
         </a>
       </CommunityCard>
@@ -177,6 +177,7 @@ const CommunityCard = styled(ArtCard)`
     color: #000;
     padding: 4px 12px;
     transition: 0.4s;
+    text-decoration: none;
 
     &:hover {
       color: #0a6bc2;
