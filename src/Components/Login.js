@@ -1,9 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { connect } from "react-redux";
+import { signInAPI } from "../Actions/Actions";
+import { Redirect } from "react-router-dom";
 
 const Login = (props) => {
   return (
     <Container>
+      {props.user && <Redirect to="/home" />}
       <Nav>
         <a href="/">
           <img src="/images/login-logo.svg" alt="login-logo"></img>
@@ -19,7 +23,7 @@ const Login = (props) => {
           <img src="/images/login-hero.svg" alt="hero"></img>
         </Hero>
         <Form>
-          <Google>
+          <Google onClick={() => props.signIn()}>
             <img src="/images/google.svg" alt="sign in"></img>
             Sign in with Google
           </Google>
@@ -168,4 +172,14 @@ const Google = styled.button`
   }
 `;
 
-export default Login;
+const mapStateProps = (state) => {
+  return {
+    user: state.userState.user,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  signIn: () => dispatch(signInAPI()),
+});
+
+export default connect(mapStateProps, mapDispatchToProps)(Login);

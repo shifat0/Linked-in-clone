@@ -1,5 +1,7 @@
 import React from "react";
+import { connect } from "react-redux";
 import styled from "styled-components";
+import { signOutAPI } from "../Actions/Actions";
 
 const Header = (props) => {
   return (
@@ -21,31 +23,31 @@ const Header = (props) => {
         <Nav>
           <NavListWrap>
             <NavList className="active">
-              <a href="#">
+              <a>
                 <img src="/images/nav-home.svg" alt="home"></img>
                 <span>Home</span>
               </a>
             </NavList>
             <NavList>
-              <a href="#">
+              <a>
                 <img src="/images/nav-network.svg" alt="network"></img>
                 <span>My Network</span>
               </a>
             </NavList>
             <NavList>
-              <a href="#">
+              <a>
                 <img src="/images/nav-jobs.svg" alt="Jobs"></img>
                 <span>Jobs</span>
               </a>
             </NavList>
             <NavList>
-              <a href="#">
+              <a>
                 <img src="/images/nav-messaging.svg" alt="Messaging"></img>
                 <span>Messaging</span>
               </a>
             </NavList>
             <NavList>
-              <a href="#">
+              <a>
                 <img
                   src="/images/nav-notifications.svg"
                   alt="notification"
@@ -54,19 +56,23 @@ const Header = (props) => {
               </a>
             </NavList>
             <User>
-              <a href="#">
-                <img src="/images/user.svg" alt="user"></img>
+              <a>
+                {props.user && props.user.photoURL ? (
+                  <img src={props.user.photoURL} alt="user" />
+                ) : (
+                  <img src="/images/user.svg" alt="user"></img>
+                )}
                 <span>
                   Me
                   <img src="/images/down-icon.svg" alt="down"></img>
                 </span>
               </a>
-              <SignOut>
-                <a href="#">Sign Out</a>
+              <SignOut onClick={() => props.signOut()}>
+                <a href="/">Sign Out</a>
               </SignOut>
             </User>
             <Work>
-              <a href="#">
+              <a>
                 <img src="/images/nav-work.svg" alt="work"></img>
                 <span>
                   Work
@@ -232,9 +238,19 @@ const User = styled(NavList)`
 
   &:hover {
     ${SignOut} {
+      a {
+        text-decoration: none;
+        color: rgba(0, 0, 0, 0.8);
+        font-size: 14px;
+      }
       display: flex;
       justify-content: center;
       align-items: center;
+      transform: translateX(-10%);
+      @media (max-width: 768px) {
+        top: 0;
+        transform: translateY(-105%) translateX(-10%);
+      }
     }
   }
 `;
@@ -243,4 +259,14 @@ const Work = styled(User)`
   border-left: 2px solid rgba(0, 0, 0, 0.08);
 `;
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    user: state.userState.user,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  signOut: () => dispatch(signOutAPI()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

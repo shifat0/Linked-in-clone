@@ -115,6 +115,10 @@ const Recommendation = styled.div`
   display: flex;
   align-items: center;
   font-size: 14px;
+  img {
+    margin-left: 5px;
+    margin-top: 4px;
+  }
 `;
 
 const BannerCard = styled(FollowCard)`

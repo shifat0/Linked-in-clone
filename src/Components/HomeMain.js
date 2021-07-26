@@ -1,13 +1,35 @@
 import React from "react";
+import { useState } from "react";
 import styled from "styled-components";
+import PostModal from "./PostModal";
 
-const HomeMain = () => {
+const HomeMain = (props) => {
+  const [showModal, setShowModal] = useState("close");
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (e.target !== e.currentTarget) {
+      return;
+    }
+    switch (showModal) {
+      case "open":
+        setShowModal("close");
+        break;
+      case "close":
+        setShowModal("open");
+        break;
+      default:
+        setShowModal("close");
+        break;
+    }
+  };
+
   return (
     <Container>
       <ShareBox>
         <div>
           <img src="/images/user.svg" alt="user" />
-          <button>Start a post</button>
+          <button onClick={handleClick}>Start a post</button>
         </div>
         <div>
           <button>
@@ -43,7 +65,7 @@ const HomeMain = () => {
               <img src="/images/three-dots.svg" alt="dots" />
             </button>
           </SharedActor>
-          <Description>desc</Description>
+          <Description></Description>
           <SharedImg>
             <a>
               <img src="/images/post.jpg" alt="post" />
@@ -83,6 +105,7 @@ const HomeMain = () => {
           </SocialActions>
         </Article>
       </div>
+      <PostModal showModal={showModal} handleClick={handleClick} />
     </Container>
   );
 };
@@ -120,6 +143,7 @@ const ShareBox = styled(CommonCard)`
       display: flex;
       align-items: center;
       font-weight: 600;
+      cursor: text;
     }
     &:first-child {
       display: flex;

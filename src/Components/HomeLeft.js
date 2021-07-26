@@ -1,7 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
 import styled from "styled-components";
 
-const HomeLeft = () => {
+const HomeLeft = (props) => {
   return (
     <Container>
       <ArtCard>
@@ -9,7 +10,9 @@ const HomeLeft = () => {
           <CardBackGround />
           <a>
             <Photo />
-            <Link>Welcome, There!</Link>
+            <Link>
+              Welcome, {props.user ? props.user.displayName : "There!"}
+            </Link>
           </a>
           <a>
             <AddPhotoText>Add Your Photo</AddPhotoText>
@@ -168,7 +171,7 @@ const Item = styled.a`
 `;
 
 const CommunityCard = styled(ArtCard)`
-  padding: 8px 0;
+  padding: 8px 0 0 0;
   margin-top: 15px;
   text-align: left;
   display: flex;
@@ -189,6 +192,10 @@ const CommunityCard = styled(ArtCard)`
       justify-content: space-between;
     }
 
+    &:nth-child(3) {
+      margin-bottom: 5px;
+    }
+
     &:last-child {
       text-decoration: none;
       color: rgba(0, 0, 0, 0.6);
@@ -202,4 +209,10 @@ const CommunityCard = styled(ArtCard)`
   }
 `;
 
-export default HomeLeft;
+const mapStateToProps = (state) => {
+  return {
+    user: state.userState.user,
+  };
+};
+
+export default connect(mapStateToProps)(HomeLeft);
