@@ -11,7 +11,7 @@ const Home = (props) => {
       <Header />
       <Section>
         <h5>
-          <a href="#">Hiring in a hurry? - </a>
+          <a>Hiring in a hurry? - </a>
         </h5>
         <p>
           Find talented pros in a record with Upwork and keep business moving
